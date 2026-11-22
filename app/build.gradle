@@ -1,0 +1,34 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'pt.amigosdasogra.app'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'pt.amigosdasogra.app'
+        minSdk 23
+        targetSdk 35
+        versionCode 1
+        versionName '0.1-test'
+    }
+    flavorDimensions 'brand'
+    productFlavors {
+        amigos {
+            dimension 'brand'
+            applicationId 'pt.amigosdasogra.player'
+            resValue 'string', 'app_name', 'Amigos da Sogra'
+            buildConfigField 'String', 'START_URL', '"https://player2.amigosdasogra.pt/login"'
+        }
+        stwp {
+            dimension 'brand'
+            applicationId 'pt.amigosdasogra.stwp'
+            resValue 'string', 'app_name', 'StwpTV'
+            buildConfigField 'String', 'START_URL', '"https://stwp.amigosdasogra.pt/login"'
+        }
+    }
+    buildFeatures { buildConfig true }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
